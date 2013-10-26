@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request
 from app import app
 
 @app.route('/')
@@ -6,6 +6,9 @@ from app import app
 def index():
     return render_template('index.html', title = 'Hey girl hey', msg = 'Hello World')
 
+@app.route('/login')
+def login():
+	return request.form
 
 # get / (index)
 # 	- if not logged in

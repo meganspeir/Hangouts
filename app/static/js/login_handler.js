@@ -15,6 +15,8 @@
 			]).then(function(data){
 				console.log('got both responses!');
 				console.log(userObj);
+
+				BEY.postLogin(userObj);
 			});
 
 		},
@@ -41,6 +43,17 @@
 			});
 
 			return friendsPromise.promise()
+		},
+
+		postLogin: function(data) {
+			$.ajax({
+				data: data,
+				dataType: 'JSON',
+				type: 'POST',
+				success: function(data) { console.log('yayyyy'); console.log(data)},
+				error: function() {console.log('booo')},
+				complete: function() {console.log('ok done')}
+			})
 		}
 	}
 
