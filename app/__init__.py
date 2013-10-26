@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask.ext.assets import Environment
 from webassets.loaders import PythonLoader
 from database import db_session
@@ -26,4 +26,6 @@ def not_found(error):
 def shutdown_session(exception=None):
     db_session.remove()
 
+
 from app import views
+
