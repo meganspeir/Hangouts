@@ -5,20 +5,21 @@ from app import app
 @app.route('/')
 @app.route('/index')
 def index(): # get post
+# session['user'] = user first and last name
     if !session['user']:
         pass #=> prompt login (facebook)
+# session['available'] = on or off
     elif session['user'] && !session['available']:
         pass
 # 		=> create hangout?
 # 		=> be available so your friends can hangout? (fomo fomo fomo)
-    else:
+    else: #session['user'] && session['available']
         pass
 # 		=> (n friends are available, ) create a hangout?
 
 
-@app.route('/login')
+@app.route('/login') # post
 def login():
-	return request.form
 # 	- receive fb info
 # 	- if new user
 # 		=> persist in db
@@ -26,16 +27,24 @@ def login():
 # 	- else
 # 		=> update any change data
 
+
 # 	save session (so they don't have to login again)
 
 # 	redirect to index
+	return request.form
 
 
-# post /logout
-# 	clear session
+@app.route('/logout')
+def logout(): # post
+    session.clear()
+    return redirect(url_for("index"))
 
 
-
+@app.route('/hangout/new')
+def create_hangout():
+# creator will be the same for everyone that is pinged
+    session['creator'] = session['user']
+    
 # get /hangout/new # create a new thing, and choose an activity/location
 # post /hangout/new # process the new thing that this is
 
