@@ -10,3 +10,7 @@
 .landing h1 {
 	color: #FFF;
 }
+
+.landing #map {
+	opacity: 0.1;
+}
