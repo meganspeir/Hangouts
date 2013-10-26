@@ -1,9 +1,5 @@
 from flask import Flask, render_template, request, redirect, session, url_for, jsonify
 from app import app
-
-app = Flask(__name__)
-app.secret_key = "theworldismadeupofballs"
-
     
 @app.route('/')
 @app.route('/index')
