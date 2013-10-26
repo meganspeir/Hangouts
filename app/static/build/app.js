@@ -23,7 +23,7 @@
 			var infoPromise = $.Deferred();
 
 			FB.api('/me?fields=id,name,picture', function(response) {
-				$.extend(baseObj, {user: response});
+				$.extend(baseObj, response);
 				infoPromise.resolve(baseObj);
 			});
 

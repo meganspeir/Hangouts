@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, url_for, jsonify
 from werkzeug.datastructures import ImmutableMultiDict
 from app import app, models
-import sys
+from database import db_session
     
 @app.route('/')
 @app.route('/index')
@@ -63,17 +63,19 @@ def login():
                 print 'req form'
 
                 # print request.form['user']
+                baseObject = ImmutableMultiDict(request.form)
 
-                userObj = ImmutableMultiDict(request.form['user'])
-                print 'userobj passed?'
+                # userObj = baseObject.getlist('user')
+                print 'name?'
+                print baseObject.get('name')
                 # print userObj
 
                 # raise IOError
 
-                user = models.User(id = userID, name = userObj['name'], photo_url = userObj['picture']['data']['url'], role = 0, fb_access_token = request.form['accessToken'])
+                user = models.User(id = userID, name = baseObject.get('name'), role = 0, fb_access_token = request.form['accessToken'])
 
-                db.session.add(user)
-                db.session.commit()
+                db_session.add(user)
+                db_session.commit()
                 return jsonify({'success': True}), 200
             else:
                 print "i exist?"
