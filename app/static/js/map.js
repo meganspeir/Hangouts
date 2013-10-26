@@ -34,8 +34,8 @@
 				src = 'static/image/hed-'+m+'.png';
 				$i = $('<img class="hed" src="'+src+'"/>');
 				style = {
-					top: (Math.random() * 100).toString() + '%',
-					left: (Math.random() * 100).toString() + '%'
+					top: (Math.random() * 90).toString() + '%',
+					left: (Math.random() * 90).toString() + '%'
 				};
 				$i.css(style);
 				console.log($i);
@@ -114,7 +114,7 @@
 		    geolocate.parentNode.removeChild(geolocate);
 
 		    _Map.addHeads();
-		    
+
 		    console.log('hey we found youuuu');
 		},
 
