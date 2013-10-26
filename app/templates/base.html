@@ -1,7 +1,7 @@
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8"><a href="base.html" id="" title="base"></a>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><a href="base.html" id="" title="base"></a>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
 
     {% if title %}
@@ -24,9 +24,11 @@
       <link href='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.ie.css' rel='stylesheet' >
     <![endif]-->
 
+    <link href='http://fonts.googleapis.com/css?family=Cherry+Swash:400,700' rel='stylesheet' type='text/css'>
     {% assets "all_css" %}
     <link rel="stylesheet" href="{{ ASSET_URL }}">
     {% endassets %}
+    
 
     
     <!-- Js -->
@@ -41,8 +43,7 @@
   </head>
   <body {% if base_class %} class="{{base_class}}" {% endif %}>
     <header>
-      <h1>Flake</h1>
-      <p>Find your people. Make plans on the fly.</p>
+        <img src="../../static/final_mockups.png">
     </header>
 
     <section>
