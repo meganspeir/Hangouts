@@ -1087,10 +1087,14 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 0; }
 
 h1 {
-  font-size: 2.125em; }
+  font-size: 2.125em; 
+  color: #009966;
+}
 
 h2 {
-  font-size: 1.6875em; }
+  font-size: 1.6875em;
+  color: #666666;
+}
 
 h3 {
   font-size: 1.375em; }
