@@ -15,7 +15,7 @@ bundles = PythonLoader('bundles').load_bundles()
 for name, bundle in bundles.iteritems():
     assets.register(name, bundle)
 
-   
+
 
 @app.errorhandler(404)
 def not_found(error):
@@ -26,4 +26,5 @@ def not_found(error):
 def shutdown_session(exception=None):
     db_session.remove()
 
-import views
+
+import app.views

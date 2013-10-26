@@ -7,12 +7,12 @@ from app import app
 def index(): # get post
     # return render_template('index.html', title='Hey', msg='Foo')
 	# session['user'] = user first and last name
-    if !session['user']:
+    if not session['user']:
         #=> prompt login (facebook)
-    return render_template('index.html', title='Hey', msg='Foo')
+        return render_template('index.html', title='Hey', msg='Foo')
         # session['available'] = on or off
 
-    elif session['user'] && !session['available']:
+    elif session['user'] and not session['available']:
         pass
 		# 		=> create hangout?
 		# 		=> be available so your friends can hangout? (fomo fomo fomo)
@@ -47,17 +47,17 @@ def logout(): # post
 @app.route('/hangout/new')
 def create_hangout():
     hangout = False
-    while !hangout:
-        if !location_map:
+    while not hangout:
+        if not location_map:
             #show map
             pass
-        elif !hangout_type:
+        elif not hangout_type:
             #render pull down list with suggestions of hangout categories
             pass
-        elif !description:
+        elif not description:
             #render a text box to submit description of hangout
             pass
-        elif !friends:
+        elif not friends:
             #render alert about which friends (pull down list with suggestions of hangout categories)
             pass
         else:
@@ -76,6 +76,3 @@ def create_hangout():
 # get /hangout/{{id}}/edit # change details and try to reinvite
 
 # post /hangout/{{id}}/invite
-
-if __name__ == "__main__":
-    app.run(debug = True)
