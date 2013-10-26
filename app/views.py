@@ -4,9 +4,9 @@ from app import app
 @app.route('/')
 @app.route('/index')
 def index(): # get post
-    return render_template('index.html', title='Hey', msg='Foo')
+    # return render_template('index.html', title='Hey', msg='Foo')
 	# session['user'] = user first and last name
-    if not session['user']:
+    if session.get('user', -1) == -1:
         #=> prompt login (facebook)
         return render_template('index.html', title='Hey', msg='Foo')
         # session['available'] = on or off
@@ -114,8 +114,8 @@ def edit_hangout():
             pass
         elif not hangout_type:
             #render pull down list with suggestions of hangout categories
-            pass
-        elif not description:
+            # pass
+        # elif not description:
             #render a text box to submit description of hangout
             pass
         elif not friends:
@@ -126,8 +126,3 @@ def edit_hangout():
             # ping friends in hangout
             hangout = True
             return redirect('/hangout/{{id}}')
-
-
-
-# post /hangout/{{id}}/invite
-
