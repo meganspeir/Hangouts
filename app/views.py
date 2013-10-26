@@ -6,10 +6,6 @@ from app import app
 def index():
     return render_template('index.html', title = 'Hey girl hey', msg = 'Hello World')
 
-# Facebook login redirect url
-# Save the user if new?
-# def login():
-
 
 # get / (index)
 # 	- if not logged in
@@ -25,6 +21,7 @@ def index():
 # 	- receive fb info
 # 	- if new user
 # 		=> persist in db
+# 		=> get friend list & create friend associations w/ registered users
 # 	- else
 # 		=> update any change data
 
