@@ -13,15 +13,12 @@ from flask.ext.assets import Bundle
 # )
 
 
-# # Bundle js libs, except jQuery (loads from CDN) and Modernizr (loads in head).
-# libs_js = Bundle(
-#     'js/libs/underscore.js',
-#     'js/libs/backbone.js',
-#     'js/libs/bootstrap.js',
-#     'js/libs/handlebars-1.0.0.beta.6.js',
-#     filters='uglifyjs',
-#     output='build/libs.js'
-# )
+# Bundle js libs, except jQuery (loads from CDN) and Modernizr (loads in head).
+libs_js = Bundle(
+    'js/lib/foundation/*.js'
+    filters='uglifyjs',
+    output='build/lib.js'
+)
 
 # app_js = Bundle(
 #     Bundle(
@@ -36,14 +33,14 @@ from flask.ext.assets import Bundle
 #     output='build/app.js'
 # )
 
-app_js = Bundle(
-	Bundle(
-		'js/*.coffee',
-		filters='coffeescript',
-		output='build/coffee.js',
-		debug=True
-	),
-	filters='uglifyjs',
-	output='app.js'
+# app_js = Bundle(
+# 	Bundle(
+# 		'js/*.coffee',
+# 		filters='coffeescript',
+# 		output='build/coffee.js',
+# 		debug=True
+# 	),
+# 	filters='uglifyjs',
+# 	output='app.js'
 
-)
+# )
