@@ -26,6 +26,24 @@
 			_Map.listen();
 		},
 
+		addHeads: function () {
+			var $b = $('body'),
+				img = ['a', 'b', 'c', 'd', 'e'];
+
+			$.each(img, function(i,m) { 
+				src = 'static/image/hed-'+m+'.png';
+				$i = $('<img class="hed" src="'+src+'"/>');
+				style = {
+					top: (Math.random() * 100).toString() + '%',
+					left: (Math.random() * 100).toString() + '%'
+				};
+				$i.css(style);
+				console.log($i);
+				$b.append($i);
+			})
+
+		},
+
 		locateMap: function (e) {
 			var $g = _Map.$g;
 
@@ -95,7 +113,8 @@
 		    // And hide the geolocation button
 		    geolocate.parentNode.removeChild(geolocate);
 
-
+		    _Map.addHeads();
+		    
 		    console.log('hey we found youuuu');
 		},
 
