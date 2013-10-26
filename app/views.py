@@ -10,7 +10,7 @@ def index(): # get post
 	# session['user'] = user first and last name
     if session.get('user', -1) == -1:
         #=> prompt login (facebook)
-        return render_template('index.html', title='Hey', msg='Foo')
+        return render_template('index.html', title='Hey', msg='Foo', base_class='landing')
         # session['available'] = on or off
 
     elif session['user'] and not session['available']:

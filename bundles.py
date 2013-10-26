@@ -7,6 +7,7 @@ all_css = Bundle(
 	'css/normalize.css',
 	'css/main.css',
 	'css/foundation.css',
+	'css/app.css',
 	'css/map.css',
 	filters='cssmin',
 	output='build/all.css',

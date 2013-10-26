@@ -2,6 +2,8 @@
 	var _Map = {
 
 		initMap: function() {
+			if (! $('#map').length ) {return}
+
 			var map = _Map.map = L.mapbox.map('map', 'examples.map-9ijuk24y');
 			var geolocate = _Map.geolocate = document.getElementById('geolocate'),
 				$geolocate = _Map.$g = $(geolocate);
