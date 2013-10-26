@@ -1,26 +1,24 @@
 from flask import render_template, request
 from app import app
 
+    
 @app.route('/')
 @app.route('/index')
-def index():
-    return render_template('index.html', title = 'Hey girl hey', msg = 'Hello World')
+def index(): # get post
+    if !session['user']:
+        pass #=> prompt login (facebook)
+    elif session['user'] && !session['available']:
+        pass
+# 		=> create hangout?
+# 		=> be available so your friends can hangout? (fomo fomo fomo)
+    else:
+        pass
+# 		=> (n friends are available, ) create a hangout?
+
 
 @app.route('/login')
 def login():
 	return request.form
-
-# get / (index)
-# 	- if not logged in
-# 		=> prompt login (facebook)
-# 	- elif logged in && !avail
-# 		=> create hangout?
-# 		=> be available so your friends can hangout? (fomo fomo fomo)
-# 	- else (logged in & available)
-# 		=> (n friends are available, ) create a hangout?
-
-
-# post /login
 # 	- receive fb info
 # 	- if new user
 # 		=> persist in db
