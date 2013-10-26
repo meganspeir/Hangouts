@@ -8,6 +8,6 @@ def index():
 
 # Facebook login redirect url
 # Save the user if new?
-def login():
+# def login():
 
 
