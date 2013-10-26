@@ -74,6 +74,9 @@ def login():
 
                 user = models.User(id = userID, name = baseObject.get('name'), role = 0, fb_access_token = request.form['accessToken'])
 
+                # Find any existing users in our db who are in this person's friend list
+
+
                 db_session.add(user)
                 db_session.commit()
                 return jsonify({'success': True}), 200
