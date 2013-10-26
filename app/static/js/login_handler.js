@@ -1,5 +1,5 @@
 (function(){
-	var BEY = {
+	var B = {
 		handleAuthResponseChange: function(initialResponse){
 			var authResponse = initialResponse.authResponse,
 				userObj = {
@@ -65,5 +65,5 @@
 	}
 
 
-	return window.BEY = BEY;
+	window.BEY = $.extend(window.BEY || {}, B);
 })();
