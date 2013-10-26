@@ -5,13 +5,14 @@ from app import app
 @app.route('/')
 @app.route('/index')
 def index(): # get post
+    # return render_template('index.html', title='Hey', msg='Foo')
 	# session['user'] = user first and last name
     if not session['user']:
         #=> prompt login (facebook)
-        return render_template("index.html")
-# session['available'] = on or off
+        return render_template('index.html', title='Hey', msg='Foo')
+        # session['available'] = on or off
 
-    elif session['user'] && not session['available']:
+    elif session['user'] and not session['available']:
         pass
 		# 		=> create hangout?
 		# 		=> be available so your friends can hangout? (fomo fomo fomo)
@@ -20,19 +21,20 @@ def index(): # get post
 		# 		=> (n friends are available, ) create a hangout?
 
 
+
 @app.route('/login') # post
 def login():
-# 	- receive fb info
-# 	- if new user
-# 		=> persist in db
-# 		=> get friend list & create friend associations w/ registered users
-# 	- else
-# 		=> update any change data
+    # 	- receive fb info
+    # 	- if new user
+    # 		=> persist in db
+    # 		=> get friend list & create friend associations w/ registered users
+    # 	- else
+    # 		=> update any change data
 
 
-# 	save session (so they don't have to login again)
+    # 	save session (so they don't have to login again)
 
-# 	redirect to index
+    # 	redirect to index
 	return request.form
 
 
@@ -108,6 +110,7 @@ def edit_hangout():
             # ping friends in hangout
             hangout = True
             return redirect('/hangout/{{id}}')
+
 
 
 # post /hangout/{{id}}/invite
