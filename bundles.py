@@ -6,6 +6,7 @@ from flask.ext.assets import Bundle
 all_css = Bundle(
 	'css/normalize.css',
 	'css/main.css',
+	'css/foundation.css',
 	'css/map.css',
 	filters='cssmin',
 	output='build/all.css',
