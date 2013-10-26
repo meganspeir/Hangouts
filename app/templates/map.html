@@ -82,12 +82,11 @@ map.on('locationfound', function(e) {
         dataType: 'json'
     })
     .done(function(data){
+        // pop up your friends' locations??
+        // ie server should return nearby friends' lat/long pairs; js will render
         console.log('success');
         console.log(data);
     })
-    .complete(function(){
-        console.log('done')
-    });
 
 
     map.markerLayer.setGeoJSON({

@@ -21,6 +21,7 @@ class User(Base):
     def __repr__(self):
         return '<User: name = %r, id = %r>' % (self.name, self.id)
 
+
 class Hangout(Base):
     __tablename__ = 'hangout'
 

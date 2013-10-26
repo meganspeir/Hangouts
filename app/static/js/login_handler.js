@@ -49,11 +49,15 @@
 			$.ajax({
 				data: data,
 				dataType: 'JSON',
-				type: 'POST',
-				success: function(data) { console.log('yayyyy'); console.log(data)},
-				error: function() {console.log('booo')},
-				complete: function() {console.log('ok done')}
+				type: 'POST'
 			})
+			.done(function(data){
+				console.log('yeahhhhh logged in. redirect to prompt things????');
+			})
+			.fail(function(){
+				console.log('couldn\'t log you in to our server :((((');
+			})
+
 		}
 	}
 

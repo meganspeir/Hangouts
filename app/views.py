@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, session, url_for, jsonify
-from app import app
+from app import app, models
     
 @app.route('/')
 @app.route('/index')
@@ -27,8 +27,6 @@ def map():
 @app.route('/store_location', methods = ['POST', 'PUT'])
 def store_location():
     locations = {}
-    # locations.append(request.form['latitude'])
-    # locations.append(request.form['longitude'])
 
     for key in ['latitude', 'longitude']:
         # locations[request.form.id]
@@ -38,8 +36,28 @@ def store_location():
 
 
 
-@app.route('/login') # post
+@app.route('/login', methods=['GET', 'POST']) # post
 def login():
+    error = None
+    if request.method == 'POST':
+        userID = request.form['userID']
+
+        # if there's a user id & no db user => create
+        if userID:
+            userObj = request.form['user']
+
+            user = models.User.query.get(userID)
+
+            # if not user
+            #     user = models.User(id = userId, name = user['name'], photo_url = user['picture'], role = 0, fb_access_token = request.form['accessToken'])
+            #     db.session.add(user)
+            #     db.session.commit()
+
+
+        # there's no userId in the request
+        else:
+            return redirect(url_for('index'))
+        
     # 	- receive fb info
     # 	- if new user
     # 		=> persist in db
@@ -53,6 +71,15 @@ def login():
     # 	redirect to index
 	return request.form
 
+@app.route('/users')
+def users():
+    users = models.User.query.all()
+
+    str = ""
+    for user in users:
+        str += user.name 
+
+    return str
 
 @app.route('/logout')
 def logout(): # post
