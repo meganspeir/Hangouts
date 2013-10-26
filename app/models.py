@@ -29,7 +29,7 @@ class User(db.Model):
         lazy = 'dynamic')
 
    def __repr__(self):
-       return '<User %r>' % (self.name)
+       return '<User: name = %r, id = %r, is_active = %r>' % (self.name, self.id self.is_active)
 
 class Hangout(db.Model):
     id = db.Column(db.Integer, primary_key = True)
@@ -46,4 +46,4 @@ class Hangout(db.Model):
         lazy = 'dynamic')
 
     def __repr__(self):
-       return '<Hangout %r>' % (self.description)
+       return '<Hangout: description = %r, id = %r, creator id = %r>' % (self.description, self.id, self.creator)
