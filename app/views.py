@@ -41,17 +41,32 @@ def login():
     error = None
     if request.method == 'POST':
         userID = request.form['userID']
+        print "postttt"
 
         # if there's a user id & no db user => create
         if userID:
-            userObj = request.form['user']
+            print "i can hz id"
+            print userID
 
+            # userObj = request.form['user']
+
+
+            print 'i got past the obj'
             user = models.User.query.get(userID)
 
-            # if not user
-            #     user = models.User(id = userId, name = user['name'], photo_url = user['picture'], role = 0, fb_access_token = request.form['accessToken'])
-            #     db.session.add(user)
-            #     db.session.commit()
+            print 'i got past the querying'
+            print user
+
+            if not user:
+                print "I DON'T EXIST ;_____;"
+                return jsonify({success: True}), 200
+
+                # user = models.User(id = userId, name = user['name'], photo_url = user['picture'], role = 0, fb_access_token = request.form['accessToken'])
+                # db.session.add(user)
+                # db.session.commit()
+            else:
+                print "i exist?"
+                return jsonify({success: True}), 200
 
 
         # there's no userId in the request
@@ -70,6 +85,10 @@ def login():
 
     # 	redirect to index
 	return request.form
+
+@app.route('/success')
+def success():
+    return 'you win at life'
 
 @app.route('/users')
 def users():
