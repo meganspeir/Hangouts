@@ -6,12 +6,12 @@ from app import app
 @app.route('/index')
 def index(): # get post
 	# session['user'] = user first and last name
-    if !session['user']:
+    if not session['user']:
         #=> prompt login (facebook)
         return render_template("index.html")
 # session['available'] = on or off
 
-    elif session['user'] && !session['available']:
+    elif session['user'] && not session['available']:
         pass
 		# 		=> create hangout?
 		# 		=> be available so your friends can hangout? (fomo fomo fomo)
@@ -45,17 +45,17 @@ def logout(): # post
 @app.route('/hangout/new')
 def create_hangout():
     hangout = False
-    while !hangout:
-        if !location_map:
+    while not hangout:
+        if not location_map:
             #show map
             pass
-        elif !hangout_type:
+        elif not hangout_type:
             #render pull down list with suggestions of hangout categories
             pass
-        elif !description:
+        elif not description:
             #render a text box to submit description of hangout
             pass
-        elif !friends:
+        elif not friends:
             #render alert about which friends (pull down list with suggestions of hangout categories)
             pass
         else:
@@ -67,13 +67,48 @@ def create_hangout():
 @app.route('/hangout/{{id}}')
 # get /hangout/{{id}} # show the hangout
 
-# get /hangout/{{id}}/available_friends # list friends within radius of hangout location
-
-# post /hangout/{{id}}/propose_alternative <-- i'm a responder and i don't like your activity?
+@app.route('/hangout/{{id}}/propose_alternative')
+def change_hangout():
+    hangout = False
+    while not hangout:
+        if not location_map:
+            #show map
+            pass
+        elif not hangout_type:
+            #render pull down list with suggestions of hangout categories
+            pass
+        elif not description:
+            #render a text box to submit description of hangout
+            pass
+        else:
+            # post hangout to DB
+            # ping friends in hangout
+            hangout = True
+            return redirect('/hangout/{{id}}')
 
 # get /hangout/{{id}}/edit # change details and try to reinvite
+@app.route('/hangout/{{id}}/edit')
+def edit_hangout():
+    hangout = False
+    while not hangout:
+        if not location_map:
+            #show map
+            pass
+        elif not hangout_type:
+            #render pull down list with suggestions of hangout categories
+            pass
+        elif not description:
+            #render a text box to submit description of hangout
+            pass
+        elif not friends:
+            #render alert about which friends (pull down list with suggestions of hangout categories)
+            pass
+        else:
+            # post hangout to DB
+            # ping friends in hangout
+            hangout = True
+            return redirect('/hangout/{{id}}')
+
 
 # post /hangout/{{id}}/invite
 
-if __name__ == "__main__":
-    app.run(debug = True)
