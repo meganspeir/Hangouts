@@ -5,18 +5,19 @@ from app import app
 @app.route('/')
 @app.route('/index')
 def index(): # get post
-# session['user'] = user first and last name
+	# session['user'] = user first and last name
     if !session['user']:
         #=> prompt login (facebook)
         return render_template("index.html")
 # session['available'] = on or off
+
     elif session['user'] && !session['available']:
         pass
-# 		=> create hangout?
-# 		=> be available so your friends can hangout? (fomo fomo fomo)
+		# 		=> create hangout?
+		# 		=> be available so your friends can hangout? (fomo fomo fomo)
     else: #session['user'] && session['available']
         pass
-# 		=> (n friends are available, ) create a hangout?
+		# 		=> (n friends are available, ) create a hangout?
 
 
 @app.route('/login') # post
