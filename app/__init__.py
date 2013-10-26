@@ -26,5 +26,4 @@ def not_found(error):
 def shutdown_session(exception=None):
     db_session.remove()
 
-
-import app.views
+from app import views
