@@ -1,4 +1,3 @@
-Hangouts
-========
-
-An app for finding your friends who can hang out NOW
+DevelopHer Hackday 2013 Hangout App - BeeHives
+==============================================
+Mobile webapp that brings people together to hangout immediately. There are two different kind of users - active (Queen Bees) vs passive (bees). Passive users have the option to decide whether they are available to hangout or not. Active users are able suggest a hangout location and activity. An active user's request will be pinged to passive users to decide whether they are interested in hanging out at. The catch is that they have a time limit for how long a passive user is able to respond to a request. 
