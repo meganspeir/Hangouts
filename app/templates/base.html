@@ -1,0 +1,21 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{title}} - Hangouts</title>
+    {% else %}
+    <title>Hangouts</title>
+    {% endif %}
+  </head>
+  <body>
+    <header>
+      <h1>Hangouts</h1>
+      <p>Queen Bey seeking crew</p>
+    </header>
+
+    <section>
+      {% block content %}{% endblock %}
+    </section>
+
+    <footer></footer>
+  </body>
+</html>
