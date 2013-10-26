@@ -9,3 +9,4 @@ flask-whooshalchemy==0.54a
 flask-wtf==0.8.4
 Flask-Assets==0.8
 cssmin==0.2.0
+Flask-Script==0.4
