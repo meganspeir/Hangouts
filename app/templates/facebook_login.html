@@ -1,0 +1,53 @@
+<html>
+<head>
+</head>
+<body>
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+      appId      : '464331713686340',                        // App ID from the app dashboard
+      channelUrl : 'http://localhost:5000/channel.html', // Channel file for x-domain comms
+      status     : true,
+      cookie     : true,                                 // Check Facebook Login status
+      xfbml      : true                                  // Look for social plugins on the page
+    });
+
+    // Additional initialization code such as adding Event Listeners goes here
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/all/debug.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<!-- <div>
+    <form action="/">
+    <h3>Login with Facebook:</h3>
+    <label for="fb_sign_in">Email or Phone: </label>
+    <input type="text" name="first_name" />
+    <label for="fb_password">Password: </label>
+    <input type="text" name="fb_password" />
+    <input type="submit">
+    <input type="reset">
+    </form>
+</div>
+<script>
+   FB.login(function(response) {
+     if (response.authResponse) {
+       console.log('Welcome!  Fetching your information.... ');
+       FB.api('/me', function(response) {
+         console.log('Good to see you, ' + response.name + '.');
+       });
+     } else {
+       console.log('User cancelled login or did not fully authorize.');
+     }
+   });
+</script> -->
+</body>
+</html>
