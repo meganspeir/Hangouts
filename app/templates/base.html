@@ -2,6 +2,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
 
     {% if title %}
     <title>{{title}} - Hangouts</title>
@@ -13,12 +14,25 @@
     <!-- Modernizr first -->
     <script src="{{url_for('static', filename='js/lib/modernizr-2.6.2.js')}}"></script>
 
+    <!-- Early Mapbox Load -->
+    <script src='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js'></script>
+
     <!-- CSS -->
 
+    <link href='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css' rel='stylesheet' />
+    <!--[if lte IE 8]>
+      <link href='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.ie.css' rel='stylesheet' >
+    <![endif]-->
+
+    <script src="{{url_for('static', filename='css/normalize.css')}}"></script>
+    <script src="{{url_for('static', filename='css/main.css')}}"></script>
+    <script src="{{url_for('static', filename='css/map.css')}}"></script>
+    
     <!-- Js -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="{{url_for('static', filename='js/login_handler.js')}}"></script>
     <script src="{{url_for('static', filename='js/facebook_init.js')}}"></script>
+    <script src="{{url_for('static', filename='js/map.js')}}"></script>
 <!--     {% assets "app_js" %}
         <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %} -->

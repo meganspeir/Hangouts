@@ -8,7 +8,36 @@ def index():
 
 @app.route('/login')
 def login():
+	login_user()
 	return request.form
+
+@app.route('/logout')
+def logout():
+	logout_user()
+	return redirect(url_for('index'))
+
+@app.route('/map')
+def map():
+	return render_template('map.html')
+
+
+# @app.route('/hangout/new')
+# def new_hangout():
+# 	if request.method != 'POST'
+# 		return render_template('')
+
+# 	else
+# 		create_new_hangout()
+# 		return redirect(url_for('index'))
+
+def create_new_hangout():
+	return 'u'
+
+def login_user():
+	return 'u'
+
+def logout_user():
+	return 'u'
 
 # get / (index)
 # 	- if not logged in
