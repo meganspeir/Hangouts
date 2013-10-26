@@ -1,5 +1,5 @@
 from app import models
-from database import db_session
+from app.database import db_session
 import datetime
 
 u1 = models.User(name = "Sharon",
