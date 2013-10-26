@@ -12,6 +12,8 @@
     body { margin:0; padding:0; }
     #map { position:absolute; top:0; bottom:0; width:100%; }
   </style>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body>
 <style>
@@ -63,6 +65,30 @@ if (!navigator.geolocation) {
 map.on('locationfound', function(e) {
     map.fitBounds(e.bounds);
     map.setZoom(14);
+
+
+    console.log('hey we found youuuu');
+    console.log(e);
+
+
+    // Post to the server!
+    $.ajax({
+        url: '/store_location',
+        data: {
+            latitude: e.latitude,
+            longitude: e.longitude
+        },
+        type: 'POST',
+        dataType: 'json'
+    })
+    .done(function(data){
+        console.log('success');
+        console.log(data);
+    })
+    .complete(function(){
+        console.log('done')
+    });
+
 
     map.markerLayer.setGeoJSON({
         type: "Feature",

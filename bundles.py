@@ -14,7 +14,7 @@ all_css = Bundle(
 )
 
 # Bundle js libs, except jQuery (loads from CDN) and Modernizr (loads in head).
-libs_js = Bundle(
+lib_js = Bundle(
     'js/lib/foundation/*.js',
     filters='uglifyjs',
     output='build/lib.js',

@@ -1,11 +1,11 @@
-from flask import render_template, request
+from flask import render_template, request, jsonify
 from app import app
 
     
 @app.route('/')
 @app.route('/index')
 def index(): # get post
-    # return render_template('index.html', title='Hey', msg='Foo')
+    return render_template('index.html', title='Hey', msg='Foo')
 	# session['user'] = user first and last name
     if not session['user']:
         #=> prompt login (facebook)
@@ -19,6 +19,23 @@ def index(): # get post
     else: #session['user'] && session['available']
         pass
 		# 		=> (n friends are available, ) create a hangout?
+
+
+@app.route('/map')
+def map():
+    return render_template('map.html')
+
+@app.route('/store_location', methods = ['POST', 'PUT'])
+def store_location():
+    locations = {}
+    # locations.append(request.form['latitude'])
+    # locations.append(request.form['longitude'])
+
+    for key in ['latitude', 'longitude']:
+        # locations[request.form.id]
+        locations[key] = request.form[key]
+
+    return jsonify(locations), 200
 
 
 
