@@ -7,6 +7,7 @@ all_css = Bundle(
 	'css/normalize.css',
 	'css/main.css',
 	'css/foundation.css',
+	'css/app.css',
 	'css/map.css',
 	filters='cssmin',
 	output='build/all.css',
@@ -23,8 +24,10 @@ lib_js = Bundle(
 
 # App js
 app_js = Bundle(
+	'js/app_base.js',
 	'js/login_handler.js',
 	'js/facebook_init.js',
+	'js/map.js',
 	# filters='uglifyjs',
 	output='build/app.js',
 	debug=True

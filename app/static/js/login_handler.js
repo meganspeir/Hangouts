@@ -1,5 +1,5 @@
 (function(){
-	var BEY = {
+	var B = {
 		handleAuthResponseChange: function(initialResponse){
 			var authResponse = initialResponse.authResponse,
 				userObj = {
@@ -55,7 +55,7 @@
 			})
 			.done(function(data){
 				console.log('yeahhhhh logged in. redirect to prompt things????');
-				window.location.href = '/success';
+				window.location.href = '/map';
 			})
 			.fail(function(){
 				console.log('couldn\'t log you in to our server :((((');
@@ -65,5 +65,5 @@
 	}
 
 
-	return window.BEY = BEY;
+	window.BEY = $.extend(window.BEY || {}, B);
 })();

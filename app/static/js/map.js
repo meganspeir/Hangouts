@@ -2,8 +2,13 @@
 	var _Map = {
 
 		initMap: function() {
+			if (! $('#map').length ) {return};
+
 			var map = _Map.map = L.mapbox.map('map', 'examples.map-9ijuk24y');
-			var geolocate = _Map.geolocate = document.getElementById('geolocate');
+
+			if ($('body').hasClass('landing')) {return};
+			var geolocate = _Map.geolocate = document.getElementById('geolocate'),
+				$geolocate = _Map.$g = $(geolocate);
 
 
 			// This uses the HTML5 geolocation API, which is available on
@@ -14,16 +19,22 @@
 			if (!navigator.geolocation) {
 			    geolocate.innerHTML = 'geolocation is not available';
 			} else {
-			    geolocate.onclick = Map.locateMap(e);
+			    // geolocate.onclick = _Map.locateMap(e);
+			    $geolocate.on('click', _Map.locateMap)
 			};
 
 			_Map.listen();
 		},
 
 		locateMap: function (e) {
+			var $g = _Map.$g;
+
 	        e.preventDefault();
 	        e.stopPropagation();
+	        // _Map.geolocate.
 			_Map.map.locate();
+			$g.text('Locating');
+			BEY.Util.appendSpinner($g);
 		},
 
 		// Event listeners
@@ -46,6 +57,28 @@
 
 		    map.fitBounds(e.bounds);
 		    map.setZoom(14);
+
+
+		    console.log('hey we found youuuu');
+		    console.log(e);
+
+
+		    // Post to the server!
+		    $.ajax({
+		        url: '/store_location',
+		        data: {
+		            latitude: e.latitude,
+		            longitude: e.longitude
+		        },
+		        type: 'POST',
+		        dataType: 'json'
+		    })
+		    .done(function(data){
+		        // pop up your friends' locations??
+		        // ie server should return nearby friends' lat/long pairs; js will render
+		        console.log('success');
+		        console.log(data);
+		    });
 
 		    map.markerLayer.setGeoJSON({
 		        type: "Feature",

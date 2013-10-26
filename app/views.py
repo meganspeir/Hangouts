@@ -10,7 +10,7 @@ def index(): # get post
 	# session['user'] = user first and last name
     if session.get('user', -1) == -1:
         #=> prompt login (facebook)
-        return render_template('index.html', title='Hey', msg='Foo')
+        return render_template('index.html', title='Flake-free plans.', msg='', base_class='landing')
         # session['available'] = on or off
 
     elif session['user'] and not session['available']:
@@ -73,6 +73,9 @@ def login():
                 # raise IOError
 
                 user = models.User(id = userID, name = baseObject.get('name'), role = 0, fb_access_token = request.form['accessToken'])
+
+                # Find any existing users in our db who are in this person's friend list
+
 
                 db_session.add(user)
                 db_session.commit()

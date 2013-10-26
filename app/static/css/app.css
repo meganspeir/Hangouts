@@ -1,0 +1,16 @@
+.landing {
+	background: #18de9b;
+	color: #FFF;
+}
+
+.landing header {
+	text-shadow: rgba(0,0,0,0.1);
+}
+
+.landing h1 {
+	color: #FFF;
+}
+
+.landing #map {
+	opacity: 0.1;
+}
