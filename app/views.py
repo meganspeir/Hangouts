@@ -5,32 +5,33 @@ from app import app
 @app.route('/')
 @app.route('/index')
 def index(): # get post
-	# session['user'] = user first and last name
-    if !session['user']:
-        pass #=> prompt login (facebook)
-	# session['available'] = on or off
-    elif session['user'] && !session['available']:
-        pass
-		# 		=> create hangout?
-		# 		=> be available so your friends can hangout? (fomo fomo fomo)
-    else: #session['user'] && session['available']
-        pass
-		# 		=> (n friends are available, ) create a hangout?
+    return render_template('index.html', title='Hey', msg='Foo')
+    # # session['user'] = user first and last name
+    # if not session['user']:
+    #     pass #=> prompt login (facebook)
+    # # session['available'] = on or off
+    # elif session['user'] and not session['available']:
+    #     pass
+    # 	# 		=> create hangout?
+    # 	# 		=> be available so your friends can hangout? (fomo fomo fomo)
+    # else: #session['user'] && session['available']
+    #     pass
+    # 	# 		=> (n friends are available, ) create a hangout?
 
 
 @app.route('/login') # post
 def login():
-# 	- receive fb info
-# 	- if new user
-# 		=> persist in db
-# 		=> get friend list & create friend associations w/ registered users
-# 	- else
-# 		=> update any change data
+    # 	- receive fb info
+    # 	- if new user
+    # 		=> persist in db
+    # 		=> get friend list & create friend associations w/ registered users
+    # 	- else
+    # 		=> update any change data
 
 
-# 	save session (so they don't have to login again)
+    # 	save session (so they don't have to login again)
 
-# 	redirect to index
+    # 	redirect to index
 	return request.form
 
 
