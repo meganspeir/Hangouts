@@ -9,13 +9,10 @@
 					expiresIn: authResponse.expiresIn
 				};
 
-			$.when([
+			$.when.apply(window, [
 				BEY.getBasicInfo(userObj),
 				BEY.getFriendList(userObj)
 			]).then(function(data){
-				console.log('got both responses!');
-				console.log(userObj);
-
 				BEY.postLogin(userObj);
 			});
 
@@ -46,6 +43,10 @@
 		},
 
 		postLogin: function(data) {
+			console.log('what is the data obj we are sending');
+			console.log(data);
+			console.log(data.user);
+
 			$.ajax({
 				url: '/login',
 				data: data,

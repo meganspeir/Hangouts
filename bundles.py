@@ -25,7 +25,7 @@ lib_js = Bundle(
 app_js = Bundle(
 	'js/login_handler.js',
 	'js/facebook_init.js',
-	filters='uglifyjs',
+	# filters='uglifyjs',
 	output='build/app.js',
 	debug=True
 )

@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, url_for, jsonify
+from werkzeug.datastructures import ImmutableMultiDict
 from app import app, models
+import sys
     
 @app.route('/')
 @app.route('/index')
@@ -48,10 +50,6 @@ def login():
             print "i can hz id"
             print userID
 
-            # userObj = request.form['user']
-
-
-            print 'i got past the obj'
             user = models.User.query.get(userID)
 
             print 'i got past the querying'
@@ -59,32 +57,35 @@ def login():
 
             if not user:
                 print "I DON'T EXIST ;_____;"
-                return jsonify({success: True}), 200
 
-                # user = models.User(id = userId, name = user['name'], photo_url = user['picture'], role = 0, fb_access_token = request.form['accessToken'])
-                # db.session.add(user)
-                # db.session.commit()
+                print request.form['userID']
+
+                print 'req form'
+
+                # print request.form['user']
+
+                userObj = ImmutableMultiDict(request.form['user'])
+                print 'userobj passed?'
+                # print userObj
+
+                # raise IOError
+
+                user = models.User(id = userID, name = userObj['name'], photo_url = userObj['picture']['data']['url'], role = 0, fb_access_token = request.form['accessToken'])
+
+                db.session.add(user)
+                db.session.commit()
+                return jsonify({'success': True}), 200
             else:
                 print "i exist?"
-                return jsonify({success: True}), 200
+                return jsonify({'success': True}), 200
 
 
         # there's no userId in the request
         else:
             return redirect(url_for('index'))
         
-    # 	- receive fb info
-    # 	- if new user
-    # 		=> persist in db
-    # 		=> get friend list & create friend associations w/ registered users
-    # 	- else
-    # 		=> update any change data
 
-
-    # 	save session (so they don't have to login again)
-
-    # 	redirect to index
-	return request.form
+	return "something"
 
 @app.route('/success')
 def success():
