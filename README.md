@@ -24,6 +24,6 @@ Features
 Product
 ==============================================
 
-![alt tag](https://github.com/MeganSpeir/Hangouts/blob/master/app/static/FlakeLanding.png)
+![alt tag](https://raw.github.com/MeganSpeir/Hangouts/master/app/static/FlakeLanding.png)
 
-![alt tag](https://github.com/MeganSpeir/Hangouts/blob/master/app/static/FlakeFriendsMap.png)
+![alt tag](https://raw.github.com/MeganSpeir/Hangouts/master/app/static/FlakeFriendsMap.png)
